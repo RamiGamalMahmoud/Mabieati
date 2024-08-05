@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mabieati.Data\Mabieati.Data.csproj" />
+    <ProjectReference Include="..\Mabieati.Kernel\Mabieati.Kernel.csproj" />
+    <ProjectReference Include="..\Mabieati.Style\Mabieati.Style.csproj" />
+  </ItemGroup>
+
+</Project>

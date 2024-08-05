@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="Velopack" Version="0.0.583" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mabieati.Data\Mabieati.Data.csproj" />
+    <ProjectReference Include="..\Mabieati.Features.Auth\Mabieati.Features.Auth.csproj" />
+    <ProjectReference Include="..\Mabieati.Features.Dashboard\Mabieati.Features.Dashboard.csproj" />
+    <ProjectReference Include="..\Mabieati.Features.UsersManagement\Mabieati.Features.UsersManagement.csproj" />
+    <ProjectReference Include="..\Mabieati.Kernel\Mabieati.Kernel.csproj" />
+  </ItemGroup>
+
+</Project>
