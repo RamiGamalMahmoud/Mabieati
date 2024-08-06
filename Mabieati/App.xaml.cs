@@ -13,6 +13,7 @@ using Mabieati.Features.UsersManagement;
 using System.Windows;
 using System.Windows.Markup;
 using Velopack;
+using System.Threading.Tasks;
 
 namespace Mabieati
 {
@@ -36,6 +37,16 @@ namespace Mabieati
             WeakReferenceMessenger.Default.Register<UserLoggedInMessage>(this, (r, m) => ShowDashboard(m));
         }
 
+        private static async Task UpdateApp()
+        {
+            UpdateManager updateManager = new UpdateManager("https://github.com/RamiGamalMahmoud/Mabieati");
+            UpdateInfo updateInfo = await updateManager.CheckForUpdatesAsync();
+            if (updateInfo is null)
+                return;
+            await updateManager.DownloadUpdatesAsync(updateInfo);
+            updateManager.ApplyUpdatesAndRestart(updateInfo);
+        }
+
         private void ShowDashboard(UserLoggedInMessage m)
         {
             Window dashboard = _host.Services.GetRequiredService<IDashboardView>() as Window;
@@ -46,6 +57,9 @@ namespace Mabieati
 
         protected override async void OnStartup(StartupEventArgs e)
         {
+#if !DEBUG
+            await UpdateApp();
+#endif
             MainWindow = (Window)_host.Services.GetRequiredService<ILoginView>();
             MainWindow.Show();
             await _host.RunAsync();
